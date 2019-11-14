@@ -36,7 +36,7 @@ const Header = () => (
       </li>
       <li className={classes.navLink}>
         <a className={s.nav__link} href="">
-          link 2
+          link 2+
         </a>
       </li>
       <li className={classes.navLink}>
