@@ -3,6 +3,8 @@ import jss from 'jss';
 import preset from 'jss-preset-default';
 import s from './Header.module.css';
 
+const a = 5;
+
 jss.setup(preset());
 
 const styl = {
