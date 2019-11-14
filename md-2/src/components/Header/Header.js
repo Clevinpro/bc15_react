@@ -27,11 +27,21 @@ const styles = {
 
 const { classes } = jss.createStyleSheet(styl).attach();
 
-const Header = () => (
-  <header>
-    <nav style={styles.nav}>
-      {/* li*5>a{link $} */}
-      <li className={classes.navLink}>
+const Header = props => {
+  console.log('props :', props);
+
+  return (
+    <header>
+      <nav style={styles.nav}>
+        {/* li*5>a{link $} */}
+        {props.navs.map((el, inx) => (
+          <li key={`nav-${inx}`} className={classes.navLink}>
+            <a className={s.nav__link} href={el.link}>
+              {el.title}
+            </a>
+          </li>
+        ))}
+        {/* <li className={classes.navLink}>
         <a className={s.nav__link} href="">
           link 1
         </a>
@@ -55,9 +65,10 @@ const Header = () => (
         <a className={s.nav__link} href="">
           link 5
         </a>
-      </li>
-    </nav>
-  </header>
-);
+      </li> */}
+      </nav>
+    </header>
+  );
+};
 
 export default Header;
