@@ -1,0 +1,63 @@
+[
+  {
+    "title": "Your contacts",
+    "items": [
+      {
+        "type": "text",
+        "name": "userName",
+        "label": "Your name"
+      },
+      {
+        "type": "email",
+        "name": "email",
+        "label": "Your email"
+      }
+    ],
+    "buttonText": "To step 2",
+    "buttonType": "button"
+  },
+  {
+    "title": "Your passport",
+    "items": [
+      {
+        "type": "text",
+        "name": "passport",
+        "label": "Your passport ID"
+      },
+      {
+        "type": "text",
+        "name": "passportDate",
+        "label": "Date issue"
+      },
+      {
+        "type": "text",
+        "name": "passportState",
+        "label": "State issue"
+      }
+    ],
+    "buttonText": "To step 3",
+    "buttonType": "button"
+  },
+  {
+    "title": "Check list",
+    "items": [
+      {
+        "type": "checkbox",
+        "name": "confirmPassport",
+        "label": "Confirm passport data"
+      },
+      {
+        "type": "checkbox",
+        "name": "confirmAge",
+        "label": "Adult 18"
+      },
+      {
+        "type": "checkbox",
+        "name": "confirmPolicy",
+        "label": "Confirm our policy"
+      }
+    ],
+    "buttonText": "Submit",
+    "buttonType": "submit"
+  }
+]
