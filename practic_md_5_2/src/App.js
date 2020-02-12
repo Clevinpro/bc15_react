@@ -9,6 +9,8 @@ class App extends Component {
     editTodo: null,
   };
 
+  listRef = React.createRef();
+
   addTodo = todo => {
     const newTodo = {
       id: uuid(),
@@ -42,6 +44,28 @@ class App extends Component {
     this.setState({ editTodo });
   };
 
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    // Are we adding new items to the list?
+    // Capture the scroll position so we can adjust scroll later.
+    if (prevState.data.length < this.state.data.length) {
+      const list = this.listRef.current;
+      return list.scrollHeight;
+    }
+    return null;
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    // Если снимок (snapshot) передан, значит элементы добавлены.
+    // Выравниваем прокрутку так, чтобы новые элементы не выталкивали старые.
+    // (снимок – значение, переданное из getSnapshotBeforeUpdate)
+    if (snapshot !== null) {
+      const list = this.listRef.current;
+      console.log('list', list);
+      console.log('snapshot :', snapshot);
+      // list.scrollTop = snapshot + 18;
+    }
+  }
+
   render() {
     console.log('this.state :', this.state);
     const { data, editTodo } = this.state;
@@ -53,7 +77,11 @@ class App extends Component {
           editTodo={editTodo}
           addTodo={this.addTodo}
         />
-        <TodoList handleEdit={this.handleEdit} data={data} />
+        <TodoList
+          listRef={this.listRef}
+          handleEdit={this.handleEdit}
+          data={data}
+        />
       </>
     );
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import s from './TodoForm.module.css';
 
 export default class TodoForm extends Component {
   static propTypes = {
@@ -35,7 +36,7 @@ export default class TodoForm extends Component {
       } else {
         addTodo(todo);
       }
-      this.setState({ todo: '' });
+      // this.setState({ todo: '' });
     } else {
       alert('enter todo > 3 symbols');
     }
@@ -46,7 +47,7 @@ export default class TodoForm extends Component {
     const { editTodo } = this.props;
 
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className={s.form} onSubmit={this.handleSubmit}>
         <label htmlFor="todo">
           <input
             onChange={this.handleChange}

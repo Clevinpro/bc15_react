@@ -1,11 +1,16 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import PropTypes from 'prop-types';
+import s from './TodoList.module.css';
 
-const TodoList = ({ data, handleEdit }) => (
-  <ul>
+const TodoList = ({ data, handleEdit, listRef }) => (
+  <ul className={s.list} ref={listRef}>
     {data.map(el => (
-      <li onDoubleClick={() => handleEdit(el.id)} key={el.id}>
+      <li
+        className={s.item}
+        onDoubleClick={() => handleEdit(el.id)}
+        key={el.id}
+      >
         {el.text}
       </li>
     ))}
